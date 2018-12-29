@@ -8,15 +8,21 @@
 
 import Cocoa
 
+/**
+ 当系统中有一个oc文件时，swift的pluginDidLoad不再被调用。解决此问题的方法为，extension一个oc类，就可以了。参考方法见：https://stackoverflow.com/questions/28946867/xcode-plugindidload-not-getting-called-when-adding-objective-c-file-in-swift-plu
+ */
+extension NSObject {
+    @objc class func pluginDidLoad(_ plugin: Bundle) {
+        ZZXcodeFormat.share.bundle = plugin
+        //注册通知，当app加载完成时，再加载此插件
+        NotificationCenter.default.addObserver(ZZXcodeFormat.share, selector: #selector(ZZXcodeFormat.didFinishLaunch), name: NSApplication.didFinishLaunchingNotification, object: nil)
+    }
+}
+
 class ZZXcodeFormat: NSObject {
     @objc static let share = ZZXcodeFormat()
     @objc var bundle: Bundle?
-
-    // 一旦项目中出现一个.m文件，就不会走swift的这个方法？？？？？？有知道原因的可以告诉我
-//    @objc class func pluginDidLoad(_ bundle: Bundle) {
-//        //注册通知，当app加载完成时，再加载此插件
-//        NotificationCenter.default.addObserver(share, selector: #selector(didFinishLaunch), name: NSApplication.didFinishLaunchingNotification, object: nil)
-//    }
+    
     @objc func didFinishLaunch() {
         addOperations()
         NotificationCenter.default.removeObserver(ZZXcodeFormat.share, name: NSApplication.didFinishLaunchingNotification, object: nil)

@@ -71,7 +71,8 @@
 @property (readonly) IDENavigatorArea *navigatorArea;
 @end
 
-@interface IDEWorkspaceWindowController : NSObject
+@interface IDEWorkspaceWindowController : NSWindowController
 @property (readonly) IDEWorkspaceTabController *activeWorkspaceTabController;
 - (IDEEditorArea *)editorArea;
 @end
+

@@ -10,9 +10,9 @@
 		FC215D7B21D4E1AB0051DB6A /* IDEFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC215D7A21D4E1AB0051DB6A /* IDEFoundation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FC215D7D21D4E1B00051DB6A /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC215D7C21D4E1B00051DB6A /* IDEKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FC215D8321D5B90B0051DB6A /* ZZXcodeFormatFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC215D8221D5B90B0051DB6A /* ZZXcodeFormatFragment.swift */; };
-		FC215D8C21D5C3AF0051DB6A /* ZZXcodeFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FC215D8B21D5C3AF0051DB6A /* ZZXcodeFormatHelper.m */; };
 		FC37C4E221D4D469007639FE /* NSDocumentExtennsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC37C4E121D4D469007639FE /* NSDocumentExtennsion.swift */; };
 		FCC1F3B321D4724F0059045E /* ZZXcodeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC1F3B221D4724F0059045E /* ZZXcodeFormat.swift */; };
+		FCCBA44221D71FB800EC19A3 /* ZZXcodeFormatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCBA44121D71FB800EC19A3 /* ZZXcodeFormatHelper.swift */; };
 		FCD21A0921D632FD00D1A634 /* swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = FCD21A0821D632FD00D1A634 /* swiftformat */; };
 		FCD21A0B21D6331D00D1A634 /* clang-format in Resources */ = {isa = PBXBuildFile; fileRef = FCD21A0A21D6331D00D1A634 /* clang-format */; };
 /* End PBXBuildFile section */
@@ -22,13 +22,12 @@
 		FC215D7A21D4E1AB0051DB6A /* IDEFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEFoundation.framework; path = ../../../../Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework; sourceTree = "<group>"; };
 		FC215D7C21D4E1B00051DB6A /* IDEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEKit.framework; path = ../../../../Applications/Xcode.app/Contents/Frameworks/IDEKit.framework; sourceTree = "<group>"; };
 		FC215D8221D5B90B0051DB6A /* ZZXcodeFormatFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZXcodeFormatFragment.swift; sourceTree = "<group>"; };
-		FC215D8A21D5C3AF0051DB6A /* ZZXcodeFormatHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZXcodeFormatHelper.h; sourceTree = "<group>"; };
-		FC215D8B21D5C3AF0051DB6A /* ZZXcodeFormatHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZXcodeFormatHelper.m; sourceTree = "<group>"; };
 		FC37C4E121D4D469007639FE /* NSDocumentExtennsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDocumentExtennsion.swift; sourceTree = "<group>"; };
 		FCC1F3A021D38B960059045E /* ZZXcodeFormat.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZZXcodeFormat.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC1F3A321D38B960059045E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCC1F3B221D4724F0059045E /* ZZXcodeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZXcodeFormat.swift; sourceTree = "<group>"; };
 		FCC1F3B421D477530059045E /* ZZXcodeFormat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZZXcodeFormat-Bridging-Header.h"; sourceTree = "<group>"; };
+		FCCBA44121D71FB800EC19A3 /* ZZXcodeFormatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZZXcodeFormatHelper.swift; sourceTree = "<group>"; };
 		FCD21A0821D632FD00D1A634 /* swiftformat */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = swiftformat; sourceTree = "<group>"; };
 		FCD21A0A21D6331D00D1A634 /* clang-format */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "clang-format"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,9 +68,8 @@
 				FCC1F3B221D4724F0059045E /* ZZXcodeFormat.swift */,
 				FC37C4E121D4D469007639FE /* NSDocumentExtennsion.swift */,
 				FC215D8221D5B90B0051DB6A /* ZZXcodeFormatFragment.swift */,
+				FCCBA44121D71FB800EC19A3 /* ZZXcodeFormatHelper.swift */,
 				FC20B69921D4CE7F00AC1514 /* ZZXcodePrivateAPI.h */,
-				FC215D8A21D5C3AF0051DB6A /* ZZXcodeFormatHelper.h */,
-				FC215D8B21D5C3AF0051DB6A /* ZZXcodeFormatHelper.m */,
 				FCC1F3B421D477530059045E /* ZZXcodeFormat-Bridging-Header.h */,
 				FCC1F3A321D38B960059045E /* Info.plist */,
 				FCD21A0A21D6331D00D1A634 /* clang-format */,
@@ -160,7 +158,7 @@
 			files = (
 				FC37C4E221D4D469007639FE /* NSDocumentExtennsion.swift in Sources */,
 				FC215D8321D5B90B0051DB6A /* ZZXcodeFormatFragment.swift in Sources */,
-				FC215D8C21D5C3AF0051DB6A /* ZZXcodeFormatHelper.m in Sources */,
+				FCCBA44221D71FB800EC19A3 /* ZZXcodeFormatHelper.swift in Sources */,
 				FCC1F3B321D4724F0059045E /* ZZXcodeFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
