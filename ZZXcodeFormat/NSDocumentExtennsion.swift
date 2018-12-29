@@ -47,7 +47,7 @@ extension IDEEditorDocument {
         // 创建Fragment
         let originRange = range ?? NSRange(location: 0, length: editedContents.count)
         let fragment = ZZXcodeFormatFragment(document: self, orginRange: originRange)
-        fragment.startFormat { result in
+        fragment.startFormat { _ in
             // 拿这个结果做什么呢？现在用不到
         }
     }
