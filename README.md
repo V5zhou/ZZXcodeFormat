@@ -43,7 +43,7 @@ ZZXcodeFormat包含下面功能：
 
 最近发现一个bug，就是当执行[unsign](https://github.com/inket/update_xcode_plugins/blob/master/README.md)后，我在新的10.14系统（黑色主题那个）上，执行showinfiner时，无限转圈。
 
-解决方法：参考自[自签名](https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md)
+解决方法：
 
 1. 关闭Xcode
 
@@ -57,6 +57,8 @@ ZZXcodeFormat包含下面功能：
 
 4. 重签成功后，打开Xcode，编译一下插件的工程文件就可以了。重启Xcode，看到弹框时，允许加载插件。
 
+参考自：https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md
+
 ## 2.`the codesign_allocate helper tool cannot be found or used`重签失败？
 
 解决方法：
@@ -67,7 +69,7 @@ ZZXcodeFormat包含下面功能：
 
 如果提示does not exist，则
 
-> ~~cp /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate /usr/bin~~cp命令已失效
+> ~~cp /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate /usr/bin~~<br>cp命令已失效
 
 原因见：[Operation not permitted](https://www.jianshu.com/p/22b89f19afd6)
 
@@ -83,4 +85,4 @@ ZZXcodeFormat包含下面功能：
 
 等待，等待。。。过会就ok了
 
-参考自https://www.jianshu.com/p/a62c9efb1e53
+参考自：https://www.jianshu.com/p/a62c9efb1e53
