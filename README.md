@@ -16,7 +16,8 @@
 5. 检查update_xcode_plugins是否安装，未安装则安装
 6. 执行unsign
 
-执行过后，重启Xcode，如果弹框就选LoadBundle，您就可以在Xcode->Edit栏中看到ZZXcodeFormat了。
+执行过后，重启Xcode，如果弹框就选LoadBundle，您就可以在Xcode->Edit栏中看到ZZXcodeFormat了。插件目录：
+> open -R ~'/Library/Application Support/Developer/Shared/Xcode/Plug-ins/ZZXcodeFormat.xcplugin'
 
 ## 功能介绍
 
