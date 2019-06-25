@@ -5,12 +5,14 @@
 
 ## 安装方法
 1. 创建自签名证书：
+    ```
     钥匙串访问
     打开菜单：钥匙串访问－》证书助理－》创建证书…
     输入证书名称：XcodeSigner；
     选择身份类型：自签名根证书 （Identity Type to Self Signed Root）
     选择证书类型：代码签名 （Certificate Type to Code Signing）
     一路继续，生成证书XcodeSigner，生成后可以在钥匙串中看到。
+    ```
 2. 下载ZZXcodeFormat，直接运行one_key_install，so easy。
 
 ## one_key_install为您做了什么？
