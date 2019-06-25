@@ -6,46 +6,31 @@ pwd
 if [ ! -f ~/.clang-format ]; then
 	cp .clang-format ~
 else
-	echo 'clang-format配置文件已存在'
+	echo 'clang-format配置文件已存在\n'
 fi
 
 # PlistBuddy添加Xcode的UUID
+echo "开始获取xcode的uuid"
 xcode_uuid=`defaults read /Applications/Xcode.app/Contents/Info.plist DVTPlugInCompatibilityUUID`
+echo "获取到xcode的uuid为:${xcode_uuid}\n"
+
+# 查看工程中是否已写入xcode的uuid，如未，则写入
 search_in_plist=`/usr/libexec/PlistBuddy -c "Print :DVTPlugInCompatibilityUUIDs:" ./ZZXcodeFormat/Info.plist | grep $xcode_uuid`
 
 if [ ${#search_in_plist} == 0 ];then
-	echo "不存在Xcode的uuid：$xcode_uuid，自动添加"
+	echo "不存在Xcode的uuid：${xcode_uuid}，自动添加"
 	/usr/libexec/PlistBuddy -c "Add :DVTPlugInCompatibilityUUIDs: string $xcode_uuid" ./ZZXcodeFormat/Info.plist
+	echo "添加完成\n"
 else
-	echo "已存在xcode_uuid:$xcode_uuid"
+	echo "已存在xcode_uuid:${xcode_uuid}\n"
 fi
 
 # 编译ZZClang
-xcodebuild -scheme ZZXcodeFormat -configuration Release
+echo "开始编译插件"
+xcodebuild -scheme ZZXcodeFormat -configuration Release -quiet
+echo "编译完成\n"
 
-# 查看gem源，并更改为https://gems.ruby-china.com/
-your_gem_source=`gem sources -l | grep https://gems.ruby-china.com`
-echo "your_gem_source:$your_gem_source"
-
-if  [ -z $your_gem_source ]; then
-	echo '貌似你的gem源过期了'
-	gem sources --add https://gems.ruby-china.com/
-else
-	echo 'gem正常'
-fi
-
-# 允许Xcode插件
-
-if  command -v update_xcode_plugins > /dev/null; then
-    echo "update_xcode_plugins has found"
-else
-    echo "update_xcode_plugins has not found"
-    
-    # 安装
-    sudo gem install -n /usr/local/bin update_xcode_plugins
-fi
-
-update_xcode_plugins
-
-update_xcode_plugins --unsign
-
+# 开始对xcode进行自签
+echo "开始对xcode进行自签，请输入mac密码"
+# sudo codesign -f -s XcodeSigner /Applications/Xcode.app
+echo "自签结束\n"
