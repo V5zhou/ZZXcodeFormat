@@ -20,7 +20,7 @@
 1. 添加`.clang-format`配置文件到个人文件夹`~`，clang-format脚本的规则配置在这里，当然您可以个性化配置，参考[这里](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 2. 检查并添加Xcode的UUID
 3. 编译插件
-4. 执行xcode自签名
+4. 执行xcode自签名(期间需要输入密码，自签大约会消耗10分钟)
 
 执行过后，重启Xcode，如果弹框就选LoadBundle，您就可以在Xcode->Edit栏中看到ZZXcodeFormat了。插件目录：
 > open -R ~'/Library/Application Support/Developer/Shared/Xcode/Plug-ins/ZZXcodeFormat.xcplugin'
