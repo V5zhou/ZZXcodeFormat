@@ -32,5 +32,5 @@ echo "编译完成\n"
 
 # 开始对xcode进行自签
 echo "开始对xcode进行自签，请输入mac密码"
-# sudo codesign -f -s XcodeSigner /Applications/Xcode.app
+sudo codesign -f -s XcodeSigner /Applications/Xcode.app
 echo "自签结束\n"
