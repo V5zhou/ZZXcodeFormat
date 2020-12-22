@@ -7,7 +7,7 @@ BasedOnStyle: LLVM
 MaxEmptyLinesToKeep: 1
 
 # 每行字符的限制，0表示没有限制
-ColumnLimit: 100
+ColumnLimit: 120
 
 # include排序
 SortIncludes: true
@@ -58,7 +58,7 @@ AlignTrailingComments:	true
 PointerAlignment: Right
 
 # 多行赋值时，以等号对齐
-AlignConsecutiveAssignments: true
+AlignConsecutiveAssignments: false
 
 ######################## 缩进方式 #########################
 
