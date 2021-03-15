@@ -32,7 +32,7 @@ SpacesInContainerLiterals: true
 ######################## 换行方式 #########################
 
 # 允许短的块放在同一行
-AllowShortBlocksOnASingleLine: true
+AllowShortBlocksOnASingleLine: false
 
 # 允许短的case标签放在同一行
 AllowShortCaseLabelsOnASingleLine: false
@@ -41,10 +41,10 @@ AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 
 # 允许短的if语句保持在同一行
-AllowShortIfStatementsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: false
 
 # 允许短的循环保持在同一行,如while(1) ccc();
-AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
 
 # 函数声名太长时，参数换行
 AllowAllParametersOfDeclarationOnNextLine: true
