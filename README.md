@@ -13,9 +13,10 @@
     选择证书类型：代码签名 （Certificate Type to Code Signing）
     一路继续，生成证书XcodeSigner，生成后可以在钥匙串中看到。
     ```
-2. 下载ZZXcodeFormat，直接运行one_key_install，so easy。
+2. 下载ZZXcodeFormat
+3. > sh install.sh
 
-## one_key_install为您做了什么？
+## install.sh为您做了什么？
 
 1. 添加`.clang-format`配置文件到个人文件夹`~`，clang-format脚本的规则配置在这里，当然您可以个性化配置，参考[这里](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 2. 检查并添加Xcode的UUID
@@ -102,7 +103,7 @@ ZZXcodeFormat包含下面功能：
 
 经过多番尝试，发现是在唤起登录苹果账号时，苹果进行了验证签名操作，非苹果签名不允许跳转登录。于是，开发了恢复切换原始签名功能。
 
-![](https://tva1.sinaimg.cn/large/008i3skNgy1gqi3jl059jj31900tkk6w.jpg)
+![](https://tva1.sinaimg.cn/large/008i3skNgy1gqi40oizkxj31940u0aj6.jpg)
 
 如果临时需要登录：
 
@@ -110,6 +111,10 @@ ZZXcodeFormat包含下面功能：
 
 重启xcode后就可以愉快的登录了（此时插件不可用）。
 
-想使用插件时，重新通过`sh install.sh`签名（直接使用了缓存，不再需要自签等待），自由随心。
+想使用插件：
 
-ps：如果想既能登录，又能使用插件，抱歉，暂未找到思路。如有好的方式，请联系我：15625298071
+> sh install.sh
+
+瞬间切换签名（直接使用了缓存，不再需要自签等待），自由随心。
+
+ps：如果想既能登录，又能使用插件，抱歉，暂未找到思路。如有好的方式，请联系我：[xinqing@gaoding.com](xinqing@gaoding.com)
