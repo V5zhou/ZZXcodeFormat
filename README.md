@@ -14,7 +14,7 @@
     一路继续，生成证书XcodeSigner，生成后可以在钥匙串中看到。
     ```
 2. 下载ZZXcodeFormat
-3. > sh install.sh
+3. > sudo sh install.sh
 
 ## install.sh为您做了什么？
 
@@ -47,7 +47,15 @@ ZZXcodeFormat包含下面功能：
 
 ---
 # 遇到问题总结
-## 1.unsign后show in finder失效问题？
+
+## 1.xcode-select: error: tool 'xcodebuild' requires Xcode?
+是因为xcodebuild找不到xcode
+
+> sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+
+## 2.脚本正常完成，未报错误，重启Xcode，愣是不弹LoadBundle？
+这是由于Mac的安全检测导致的，未允许访问的程序，不被信任。解决办法：找到ZZXcodeFormat.xcodeproj，运行，command+B编译。完成后杀掉Xcode，重新打开Xcode。
+## 3.unsign后show in finder失效问题？
 
 最近发现一个bug，就是当执行[unsign](https://github.com/inket/update_xcode_plugins/blob/master/README.md)后，我在新的10.14系统（黑色主题那个）上，执行showinfiner时，无限转圈。
 
@@ -65,7 +73,7 @@ ZZXcodeFormat包含下面功能：
 
 4. 重签成功后，打开Xcode，编译一下插件的工程文件就可以了。重启Xcode，看到弹框时，允许加载插件。
 
-## 2.`the codesign_allocate helper tool cannot be found or used`重签失败？
+## 4.`the codesign_allocate helper tool cannot be found or used`重签失败？
 
 解决方法：
 
@@ -99,7 +107,7 @@ ZZXcodeFormat包含下面功能：
 
 参考自https://www.jianshu.com/p/a62c9efb1e53
 
-## 3. 自签后，Xcode无法登录苹果账号
+## 5. 自签后，Xcode无法登录苹果账号
 
 经过多番尝试，发现是在唤起登录苹果账号时，苹果进行了验证签名操作，非苹果签名不允许跳转登录。于是，开发了恢复切换原始签名功能。
 
@@ -107,13 +115,13 @@ ZZXcodeFormat包含下面功能：
 
 如果临时需要登录：
 
-> sh install.sh restore
+> sudo sh install.sh restore
 
 重启xcode后就可以愉快的登录了（此时插件不可用）。
 
 想使用插件：
 
-> sh install.sh
+> sudo sh install.sh
 
 瞬间切换签名（直接使用了缓存，不再需要自签等待），自由随心。
 

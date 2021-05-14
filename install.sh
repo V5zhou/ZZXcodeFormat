@@ -9,8 +9,6 @@ xcode_file_path="${xcode_file_dir}/Xcode"
 cached_origin_file_path="${xcode_file_dir}/origin_Xcode_${xcode_version}"
 cached_resigned_file_path="${xcode_file_dir}/resigned_Xcode_${xcode_version}"
 
-echo "xcode_application_path:$xcode_application_path \n xcode_file_dir:$xcode_file_dir \n xcode_file_path:$xcode_file_path \n cached_origin_file_path:$cached_origin_file_path \n cached_resigned_file_path:$cached_resigned_file_path"
-
 # ################################ private ################################
 # 加载clang-format配置文件
 function loadSettingFile() {
@@ -68,6 +66,9 @@ function resignXcode() {
         
         echo "开始对xcode进行自签，请输入mac密码:"
         sudo codesign -f -s XcodeSigner /Applications/Xcode.app
+        echo "自签完成，备份自签后文件"
+        cp $xcode_file_path $cached_resigned_file_path
+        chmod -x $cached_resigned_file_path
         echo "自签结束\n"
 	fi
 }
@@ -107,9 +108,11 @@ function restore() {
 func=$1
 if [ -n func ]; then
     echo "$0 $1"
-    if [ $func == "restore" ];then
+    if [ "$func" == "restore" ];then
         restore
-    elif [ $func == "install" ]; then
+    elif [ "$func" == "install" ];then
         install
+    else
+        echo "\n未能识别的参数$func\n安装请使用:sudo sh install.sh install\n恢复请使用:sudo sh install.sh restore"
     fi
 fi
