@@ -14,7 +14,7 @@
     一路继续，生成证书XcodeSigner，生成后可以在钥匙串中看到。
     ```
 2. 下载ZZXcodeFormat
-3. > sudo sh install.sh
+3. > sudo sh install.sh install
 
 ## install.sh为您做了什么？
 
@@ -121,7 +121,7 @@ ZZXcodeFormat包含下面功能：
 
 想使用插件：
 
-> sudo sh install.sh
+> sudo sh install.sh install
 
 瞬间切换签名（直接使用了缓存，不再需要自签等待），自由随心。
 
