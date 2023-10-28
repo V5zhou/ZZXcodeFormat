@@ -1,0 +1,33 @@
+
+# swift版本号（必填）
+--swiftversion 5.1
+
+# 多参数换行
+--wraparguments before-first
+--wrapparameters before-first
+
+# 超行宽换行
+--maxwidth 140
+
+# else前后不换行
+--guardelse same-line
+--elseposition same-line
+
+# 移除非必要self
+--self remove
+
+# 移除可推断类型声名
+--redundanttype inferred
+
+# 移除多余空行
+# 默认值
+
+# 移除行尾空字符
+--trimwhitespace always
+
+# @objc位置
+--funcattributes same-line
+--typeattributes same-line
+--varattributes same-line
+  
+--enable blankLineAfterImports,blockComments,docComments,andOperator
